@@ -1,0 +1,186 @@
+/* styles.css */
+body {
+  font-family: Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  /* height: 100vh; */
+  margin: 0;
+  background: linear-gradient(135deg, #74ebd5 0%, #9face6 100%);
+  color: #fff;
+}
+ 
+/* dark theme */
+body.dark-theme{
+  background: linear-gradient(135deg, #2b2b2b 0%, #141414  100%);
+  color: #fff;
+}
+
+.container.dark-theme {
+ background: rgba(255, 255, 255, 0.8);
+}
+
+button.dark-theme {
+  background-color: #4a4a4a;
+  color: #fff;
+}
+
+/* light theme */
+body.light-theme {
+  background: linear-gradient(135deg, #74ebd5 0%, #9face6 100%);
+  color: #000;
+}
+
+.container.light-theme {
+  background: rgba(255, 255, 255, 0.8);
+}
+
+button.light-theme {
+  background-color: #ff6b6b;
+}
+
+
+
+#background-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1;
+  pointer-events: none; /* Prevent interaction with the background */
+  overflow: hidden;
+}
+
+/* Styling for floating circles */
+.background-circle {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.3);
+  animation: float 10s linear infinite;
+}
+
+/* Floating animation for circles */
+@keyframes float {
+  0% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-20vh) rotate(180deg);
+  }
+  100% {
+    transform: translateY(0) rotate(360deg);
+}
+}
+
+
+.container {
+  text-align: center;
+  padding: 20px;
+  background: rgba(0, 0, 0, 0.6);
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  width: 100%;
+  margin-top: 120px;
+ 
+}
+
+h1 {
+  font-size: 2.5em;
+  margin: 0;
+  opacity: 0;
+  animation: fadeIn 2s forwards;
+}
+
+.intro-text {
+  font-size: 1.2em;
+  margin: 10px 0 20px;
+}
+
+button {
+  padding: 12px 24px;
+  font-size: 16px;
+  color: #fff;
+  background-color: #ff6b6b;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+button:hover {
+  background-color: #ff4757;
+  transform: scale(1.05);
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+}
+
+#navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 15px 0;
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.7); /* Dark semi-transparent background */
+  backdrop-filter: blur(10px); /* Glassmorphic blur effect */
+  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.3);
+}
+
+#navbar ul {
+  list-style: none;
+  display: flex;
+  gap: 30px;
+  padding: 0;
+  margin: 0;
+}
+
+#navbar ul li {
+  display: inline;
+}
+
+#navbar ul li a {
+  color: #ddd;
+  font-weight: bold;
+  text-decoration: none;
+  font-size: 1.1em;
+  padding: 8px 16px;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+#navbar ul li a:hover {
+  color: #ff6b6b;
+  transform: scale(1.1);
+}
+
+/* Active link indicator */
+#navbar ul li a.active::after {
+  content: "";
+  display: block;
+  margin: 0 auto;
+  height: 3px;
+  width: 50%;
+  background: #ff6b6b;
+  transition: width 0.3s ease;
+}
+
+#navbar ul li a.active:hover::after {
+  width: 70%; /* Slightly expands on hover */
+}
+
